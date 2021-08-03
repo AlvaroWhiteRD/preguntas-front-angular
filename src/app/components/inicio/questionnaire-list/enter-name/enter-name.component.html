@@ -1,0 +1,12 @@
+<div class="container">
+    <div class="card text-center" style="width: 100%; padding: 20px; min-height: 200px;">
+        <div class="col-lg-6 offset-lg-3">
+            <input [(ngModel)]="participantName" style="font-size: x-large;" class="form-control form-control-lg" placeholder="Ingrese su nombre aqui">
+        </div>
+        <div class="mt-auto">
+            <button class="btn btn-primary btn-lg" routerLink="/inicio/lista-cuestionarios"> Volver</button>
+            <button [disabled]="participantName == ''" (click)="ParticipantName()" class="btn btn-success btn-lg btn-next">Siguiente</button>
+
+        </div>
+    </div>
+</div>

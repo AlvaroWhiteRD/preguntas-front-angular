@@ -1,0 +1,17 @@
+<div class="container">
+    <div class="card text-center">
+        <app-loading *ngIf="loading"></app-loading>
+        <div>
+            <h4 class="card-title"> {{GetQuestion()}} </h4>
+            <ul class="list-group">
+                <li class="list-group-item" *ngFor="let answer of questionList[GetIndex()]?.answerList" (click)="AnswerSelected(answer, answer.id!)" [ngClass]="AddClassOption(answer)">
+                    {{answer.description}}
+                </li>
+
+            </ul>
+            <div class="mt-auto">
+                <button (click)="NextQuestion()" [disabled]="!answerConfirm" class="btn btn-primary btn-lg btn-next">Siguiente</button>
+            </div>
+        </div>
+    </div>
+</div>

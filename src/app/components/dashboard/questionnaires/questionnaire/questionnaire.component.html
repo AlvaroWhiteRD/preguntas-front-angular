@@ -1,0 +1,28 @@
+<div class="text-center">
+    <app-loading *ngIf="loading == true"></app-loading>
+</div>
+
+<div class="text-center" *ngIf="!loading">
+    <h4 class="card-title text-uppercase">{{questionnaire.name}}</h4>
+    <p class="card-text text-uppercase">{{questionnaire.description}}</p>
+    <hr>
+    <div *ngFor="let question of questionnaire.questionList">
+
+        <div class="card-hidden"> {{question.description}}</div>
+
+        <ul class="list-group" *ngFor="let answer of question.answerList">
+            <li class="list-group-item" [ngClass]="{'list-group-item-success': answer.correctAnswer }"> {{answer.description}}
+                <!-- [ngClass]="{'list-group-item-success': answer.correctAnswer }"-->
+                <span class="material-icons" *ngIf="answer.correctAnswer"> check_circle</span>
+            </li>
+
+        </ul>
+        <br>
+    </div>
+    <div class="row">
+        <div class="col-lg-4 offset-lg-4">
+            <button class="btn btn-info btn-lg btn-block" routerLink="/dashboard" routerLinkActive="router-link-active">Volver</button>
+        </div>
+    </div>
+    <br>
+</div>
